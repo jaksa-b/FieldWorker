@@ -1,1 +1,18 @@
-<p>This is the login view.</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2>Login</h2>
+      <form ng-submit="login(user)">
+        <div class="input-group form-group">
+          <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+          <input type="email" class="form-control" ng-model="user.email" placeholder="Email" required>
+        </div>
+        <div class="input-group form-group">
+          <div class="input-group-addon"><i class="fa fa-key"></i></div>
+          <input type="password" class="form-control" ng-model="user.password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
