@@ -19,7 +19,7 @@ angular.module('fieldworkerApp', [
     'toaster',
     'angularMoment'
   ])
-  .constant('FIREBASE_URL', 'https://fieldworker0.firebaseio.com/')
+  .constant('FURL', 'https://fieldworker0.firebaseio.com/')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
