@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -20,6 +21,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <!-- Toast Conf -->
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button': true}"></toaster-container>
+    <!-- Nav Bar Import -->
+    <div ng-include="'views/nav.html'"></div>
       <div ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -64,11 +69,14 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angularjs-toaster/toaster.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
+            <script src="scripts/app.js"></script>
         <!-- endbuild -->
 </body>
 </html>
