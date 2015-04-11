@@ -13,13 +13,11 @@ angular.module('fieldworkerApp')
     $scope.searchPost = '';
     $scope.posts = Post.all;
     $scope.signedIn = Auth.signedIn;
-    $scope.listMode = true;
 
     $scope.user = Auth.user;
 
     if($routeParams.postId){
       var post = Post.getPost($routeParams.postId).$asObject();
-      $scope.listMode = false;
       setSelectedPost(post);
     }
     function setSelectedPost(post){
@@ -48,7 +46,7 @@ angular.module('fieldworkerApp')
     };
 
     $scope.editPost = function (post) {
-      post.editPost(post).then(function () {
+      Post.editPost(post).then(function () {
         toaster.pop('success', 'Post is updated.');
       });
     };

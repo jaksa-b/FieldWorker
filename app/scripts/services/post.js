@@ -25,7 +25,7 @@ angular.module('fieldworkerApp')
       },
       editPost: function (post) {
         var p = this.getPost(post.$id);
-        return p.$update({title: post.title, description: post.description, total: post.total});
+        return p.$update({title: post.title, description: post.description});
       },
       archivePost: function (postId) {
         var p = this.getPost(postId);

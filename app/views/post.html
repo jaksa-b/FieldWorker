@@ -1,22 +1,25 @@
 <div class="container">
   <div class="panel panel-default">
       <div class="panel-body">
-        <h3>{{selectedPost.title}}</h3>
-        <small am-time-ago="selectedPost.datetime"></small>
-        <span class="badge">{{selectedPost.status}}</span>
-        <p>{{selectedPost.description}}</p>
-      </div>
-      <div class="panel-footer">
+        <!-- Post Settings -->
         <div ng-show="isPostCreator(selectedPost) && isOpen(selectedPost)">
-          <div class="btn-group">
-            <a href="" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+          <div class="btn-group pull-right">
+            <a href="" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> <i class="fa fa-caret-down"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="" data-toggle="modal" data-target="#editModal">Edit Task</a></li>
+              <li><a href="" data-toggle="modal" data-target="#editPostModal"><i class="fa fa-pencil"></i> Edit Post</a></li>
               <li class="divider"></li>
-              <li><a href="" ng-click="archivePost(selectedPost.$id)">Cancel Task</a></li>
+              <li><a href="" ng-click="archivePost(selectedPost.$id)"><i class="fa fa-archive"></i> Archive Post</a></li>
             </ul>
           </div>
         </div>
+        <!--/ Post Settings -->
+        <h3>{{selectedPost.title}}</h3>
+        <i class="fa fa-clock-o"></i> <small am-time-ago="selectedPost.datetime"></small>
+        <span class="badge list-group-item-success">{{selectedPost.status}}</span>
+        <p>{{selectedPost.description}}</p>
       </div>
+
+
   </div>
 </div>
+<div ng-show="signedIn()" ng-include="'views/partials/editPost.html'"></div>
