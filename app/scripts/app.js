@@ -35,11 +35,11 @@ angular.module('fieldworkerApp', [
       })
       .when('/posts', {
         templateUrl: 'views/posts.html',
-        controller: 'PostsCtrl'
+        controller: 'PostCtrl'
       })
       .when('/posts/:postId', {
         templateUrl: 'views/post.html',
-        controller: 'PostsCtrl'
+        controller: 'PostCtrl'
       })
       .when('/users', {
         templateUrl: 'views/users.html',
