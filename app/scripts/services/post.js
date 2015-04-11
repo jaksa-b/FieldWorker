@@ -12,6 +12,7 @@ angular.module('fieldworkerApp')
 
     var ref = new Firebase(FURL);
     var posts = $firebase(ref.child('posts')).$asArray();
+    var user = Auth.user;
 
     var Post = {
       all: posts,
@@ -25,6 +26,16 @@ angular.module('fieldworkerApp')
       editPost: function (post) {
         var p = this.getPost(post.$id);
         return p.$update({title: post.title, description: post.description, total: post.total});
+      },
+      archivePost: function (postId) {
+        var p = this.getPost(postId);
+        return p.$update({status: 'closed'});
+      },
+      isCreator: function (post) {
+        return (user && user.provider && user.uid === post.poster);
+      },
+      isOpen: function (post) {
+        return post.status === 'open';
       }
     };
     return Post;

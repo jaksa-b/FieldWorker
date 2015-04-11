@@ -15,10 +15,11 @@
     <div class="panel-body">
       <!-- Single Post Loop -->
       <div class="list-group">
-        <a class="list-group-item" ng-repeat="post in posts | filter: {title:searchPost, status: '!cancelled'} | orderBy: 'datetime':true " ng-href="#/posts/{{post.$id}}">
+        <a class="list-group-item" ng-repeat="post in posts | filter: {title:searchPost, status: '!closed'} | orderBy: 'datetime':true " ng-href="#/posts/{{post.$id}}">
           <h4 class="list-group-item-heading">{{post.title | limitTo:50}}{{post.title.length > 50? "...": ""}}</h4>
           <p class="list-group-item-text">{{post.description | limitTo:70}}{{post.description.length > 70? "...": ""}}</p>
           <small am-time-ago="post.datetime"></small>
+          <span class="badge list-group-item-success">{{post.status}}</span>
         </a>
       </div>
       <!-- / Single Post Loop -->

@@ -1,1 +1,22 @@
-<p>This is the post view.</p>
+<div class="container">
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>{{selectedPost.title}}</h3>
+        <small am-time-ago="selectedPost.datetime"></small>
+        <span class="badge">{{selectedPost.status}}</span>
+        <p>{{selectedPost.description}}</p>
+      </div>
+      <div class="panel-footer">
+        <div ng-show="isPostCreator(selectedPost) && isOpen(selectedPost)">
+          <div class="btn-group">
+            <a href="" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="" data-toggle="modal" data-target="#editModal">Edit Task</a></li>
+              <li class="divider"></li>
+              <li><a href="" ng-click="archivePost(selectedPost.$id)">Cancel Task</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
