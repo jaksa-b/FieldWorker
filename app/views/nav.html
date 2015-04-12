@@ -13,16 +13,16 @@
     <!-- Brand and toggle -->
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav">
-        <li><a href="#/users">Users</a></li>
-        <li><a href="#/posts">Posts</a></li>
+        <li ng-show="signedIn()"><a href="#/users"><i class="fa fa-list"></i> Users</a></li>
+        <li ng-show="signedIn()"><a href="#/posts"><i class="fa fa-list"></i> Posts</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="signedIn()"><a href="#/login">Log In</a></li>
         <li ng-hide="signedIn()"><a href="#/register">Register</a></li>
-        <li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#addPostModal">Add Post</a></li>
+        <li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#addPostModal"><i class="fa fa-plus"></i> Add Post</a></li>
         <li ng-show="signedIn()" class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">
-           username <i class="fa fa-caret-down"></i>
+            {{currentUser.profile.name}} <i class="fa fa-caret-down"></i>
           </a>
           <ul class="dropdown-menu">
             <li><a href="" data-toggle="modal" data-target="#passwordModal">Change Password</a></li>
