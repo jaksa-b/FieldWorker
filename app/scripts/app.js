@@ -43,11 +43,11 @@ angular.module('fieldworkerApp', [
       })
       .when('/users', {
         templateUrl: 'views/users.html',
-        controller: 'UsersCtrl'
+        controller: 'UserCtrl'
       })
       .when('/users/:userId', {
         templateUrl: 'views/user.html',
-        controller: 'UsersCtrl'
+        controller: 'UserCtrl'
       })
       .otherwise({
         redirectTo: '/'
