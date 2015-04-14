@@ -8,7 +8,7 @@
  * Controller of the fieldworkerApp
  */
 angular.module('fieldworkerApp')
-  .controller('UserCtrl', function ($scope, Auth, User, $routeParams) {
+  .controller('UserCtrl', function ($scope, Auth, User, $routeParams, toaster) {
 
     $scope.users = User.all;
     $scope.user = Auth.user;
@@ -21,5 +21,10 @@ angular.module('fieldworkerApp')
       $scope.selectedUser = user;
 
     }
+    $scope.editUser = function (user) {
+      User.editUser(user).then(function () {
+        toaster.pop('success', 'Profile Updated');
+      });
+    };
 
   });

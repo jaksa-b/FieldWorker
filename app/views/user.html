@@ -1,11 +1,21 @@
 <div class="container">
   <div class="panel panel-default row">
     <!-- Profile Header -->
-    <div class="panel-heading media">
+    <div class="panel-heading">
+      <!-- Settings Button -->
+      <div class="btn-group pull-right">
+        <a href="" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> <i class="fa fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-pencil"></i> Edit</a></li>
+          <li class="divider"></li>
+          <li><a href=""><i class="fa fa-archive"></i> Archive</a></li>
+        </ul>
+      </div>
+      <!--/ Settings Button -->
       <div class="pull-left">
         <img src="images/user.jpg" class="img-circle" width="70px" alt="{{selectedUser.name}}" title="{{selectedUser.name}}"/>
       </div>
-      <div class="media-body">
+      <div class="">
         <h4>{{selectedUser.name}}</h4>
         <small>{{selectedUser.email}}</small>
       </div>
@@ -18,3 +28,4 @@
     <!--/ List Posts -->
   </div>
 </div>
+<div ng-include="'views/partials/editUser.html'"></div>

@@ -17,6 +17,10 @@ angular.module('fieldworkerApp')
       all: users,
       getUser: function (userId) {
         return $firebase(ref.child('users').child(userId));
+      },
+      editUser: function (user) {
+        var u = this.getUser(user.$id);
+        return u.$update({name:user.name, email:user.email});
       }
     };
     return User;
