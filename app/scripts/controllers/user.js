@@ -21,5 +21,5 @@ angular.module('fieldworkerApp')
       $scope.selectedUser = user;
 
     }
-    
+
   });
