@@ -21,6 +21,7 @@
           <div class="media-body">
             <h4 class="list-group-item-heading">{{user.name}}</h4>
             <p class="list-group-item-text">{{user.email}}</p>
+            <span class="badge" ng-class="{true: 'list-group-item-success', false: ''}[user.active]">Active: {{user.active}}</span>
           </div>
         </div>
         <div class="clearfix"></div>

@@ -19,7 +19,8 @@ angular.module('fieldworkerApp')
       createProfile: function (uid, user) {
         var profile = {
           name: user.name,
-          email: user.email
+          email: user.email,
+          active: true
         };
         var profileRef = $firebase(ref.child('users'));
         return profileRef.$set(uid, profile);

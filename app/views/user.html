@@ -8,7 +8,7 @@
         <ul class="dropdown-menu">
           <li><a href="" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-pencil"></i> Edit</a></li>
           <li class="divider"></li>
-          <li><a href=""><i class="fa fa-archive"></i> Archive</a></li>
+          <li><a href="" ng-click="archiveUser(selectedUser.$id)"><i class="fa fa-archive"></i> Archive</a></li>
         </ul>
       </div>
       <!--/ Settings Button -->
@@ -18,6 +18,7 @@
       <div class="">
         <h4>{{selectedUser.name}}</h4>
         <small>{{selectedUser.email}}</small>
+        <span class="badge">Active: {{selectedUser.active}}</span>
       </div>
     </div>
     <!--/ Profile Header -->

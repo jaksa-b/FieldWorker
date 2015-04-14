@@ -26,5 +26,11 @@ angular.module('fieldworkerApp')
         toaster.pop('success', 'Profile Updated');
       });
     };
+    
+    $scope.archiveUser = function (userId) {
+      User.archiveUser(userId).then(function () {
+        toaster.pop('success', 'User Archived');
+      });
+    };
 
   });

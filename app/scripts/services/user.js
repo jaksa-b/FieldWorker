@@ -21,6 +21,10 @@ angular.module('fieldworkerApp')
       editUser: function (user) {
         var u = this.getUser(user.$id);
         return u.$update({name:user.name, email:user.email});
+      },
+      archiveUser: function (userId) {
+        var u = this.getUser(userId);
+        return u.$update({active: false});
       }
     };
     return User;
