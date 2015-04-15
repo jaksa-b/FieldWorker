@@ -21,7 +21,15 @@ angular.module('fieldworkerApp')
       },
       createPost: function (post) {
         post.datetime = Firebase.ServerValue.TIMESTAMP;
-        return posts.$add(post);
+        return posts.$add(post).then(function (newPost) {
+            var obj = {
+              postId: newPost.key(),
+              title: post.title
+            };
+
+          $firebase(ref.child('user_posts').child(post.poster)).$push(obj);
+          return newPost;
+          });
       },
       editPost: function (post) {
         var p = this.getPost(post.$id);

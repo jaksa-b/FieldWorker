@@ -8,7 +8,7 @@
  * Factory in the fieldworkerApp.
  */
 angular.module('fieldworkerApp')
-  .factory('User', function (FURL, $firebase) {
+  .factory('User', function (FURL, $firebase, $q) {
 
     var ref = new Firebase(FURL);
     var users = $firebase(ref.child('users')).$asArray();
@@ -25,6 +25,17 @@ angular.module('fieldworkerApp')
       archiveUser: function (userId) {
         var u = this.getUser(userId);
         return u.$update({active: false});
+      },
+      getUserPosts: function (uid) {
+        var defer = $q.defer();
+
+        $firebase(ref.child('user_posts').child(uid)).$asArray().$loaded().then(function (posts) {
+          defer.resolve(posts);
+        }, function () {
+          defer.reject();
+        });
+
+        return defer.promise;
       }
     };
     return User;

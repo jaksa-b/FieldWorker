@@ -2,29 +2,38 @@
   <div class="panel panel-default row">
     <!-- Profile Header -->
     <div class="panel-heading">
-      <!-- Settings Button -->
-      <div class="btn-group pull-right">
-        <a href="" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> <i class="fa fa-caret-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-pencil"></i> Edit</a></li>
-          <li class="divider"></li>
-          <li><a href="" ng-click="archiveUser(selectedUser.$id)"><i class="fa fa-archive"></i> Archive</a></li>
-        </ul>
-      </div>
-      <!--/ Settings Button -->
-      <div class="pull-left">
-        <img src="images/user.jpg" class="img-circle" width="70px" alt="{{selectedUser.name}}" title="{{selectedUser.name}}"/>
-      </div>
-      <div class="">
-        <h4>{{selectedUser.name}}</h4>
-        <small>{{selectedUser.email}}</small>
-        <span class="badge">Active: {{selectedUser.active}}</span>
+      <div id="profile-header" class="media">
+        <!-- Settings Button -->
+        <div class="btn-group pull-right">
+          <a href="" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> <i class="fa fa-caret-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="" data-toggle="modal" data-target="#editUserModal"><i class="fa fa-pencil"></i> Edit</a></li>
+            <li class="divider"></li>
+            <li><a href="" ng-click="archiveUser(selectedUser.$id)"><i class="fa fa-archive"></i> Archive</a></li>
+          </ul>
+        </div>
+        <!--/ Settings Button -->
+        <div class="pull-left">
+          <img src="images/user.jpg" class="img-circle" width="70px" alt="{{selectedUser.name}}" title="{{selectedUser.name}}"/>
+        </div>
+        <div class="media-body">
+          <h4>{{selectedUser.name}}</h4>
+          <span class="badge">Active: {{selectedUser.active}}</span>
+          <p><small>{{selectedUser.email}}</small></p>
+        </div>
       </div>
     </div>
     <!--/ Profile Header -->
     <!-- List Posts -->
     <div class="panel-body">
-      List Users Posts
+      <div class="list-group">
+        <p>Number of posts: <small class="badge">{{numPoster}}</small></p>
+        <div class="well" ng-if="numPoster === 0">There are no posts!</div>
+        <a  href="" class="list-group-item" ng-repeat=" post in userPosts" ng-href="#/posts/{{post.postId}}">
+          <h4 class="list-group-item-heading">{{post.title}}</h4>
+          <p class="list-group-item-text">{{post.description}}</p>
+        </a>
+      </div>
     </div>
     <!--/ List Posts -->
   </div>
