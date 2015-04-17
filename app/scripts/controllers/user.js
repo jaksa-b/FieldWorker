@@ -12,6 +12,7 @@ angular.module('fieldworkerApp')
 
     $scope.users = User.all;
     $scope.user = Auth.user;
+    $scope.signedIn = Auth.signedIn;
     $scope.userPosts = [];
 
 
@@ -21,6 +22,10 @@ angular.module('fieldworkerApp')
     }
     function setSelectedUser(user){
       $scope.selectedUser = user;
+
+      if($scope.signedIn()){
+        $scope.isProfileOwner = User.isOwner(user.$id);
+      }
 
       User.getUserPosts(user.$id).then(function (posts) {
 
@@ -41,5 +46,4 @@ angular.module('fieldworkerApp')
         toaster.pop('success', 'User Archived');
       });
     };
-
   });

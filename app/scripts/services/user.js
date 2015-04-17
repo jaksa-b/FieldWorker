@@ -8,10 +8,11 @@
  * Factory in the fieldworkerApp.
  */
 angular.module('fieldworkerApp')
-  .factory('User', function (FURL, $firebase, $q) {
+  .factory('User', function (FURL, $firebase, $q, Auth) {
 
     var ref = new Firebase(FURL);
     var users = $firebase(ref.child('users')).$asArray();
+    var user = Auth.user;
 
     var User = {
       all: users,
@@ -36,6 +37,9 @@ angular.module('fieldworkerApp')
         });
 
         return defer.promise;
+      },
+      isOwner: function (userId) {
+        return (user && user.provider && user.uid === userId);
       }
     };
     return User;
