@@ -25,6 +25,7 @@
             {{currentUser.profile.name}} <i class="fa fa-caret-down"></i>
           </a>
           <ul class="dropdown-menu">
+            <li><a href="" ng-href="#/users/{{currentUser.profile.$id}}">View Profile</a></li>
             <li><a href="" data-toggle="modal" data-target="#passwordModal">Change Password</a></li>
             <li class="divider"></li>
             <li><a href="" ng-click="logout()">Logout</a></li>

@@ -15,7 +15,6 @@ angular.module('fieldworkerApp')
     $scope.signedIn = Auth.signedIn;
     $scope.userPosts = [];
 
-
     if($routeParams.userId){
       var user = User.getUser($routeParams.userId).$asObject();
       setSelectedUser(user);
