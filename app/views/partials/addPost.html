@@ -6,15 +6,31 @@
         <h4 class="modal-title">Add New Post</h4>
       </div>
       <div class="modal-body">
-        <form ng-submit="createPost()">
-          <div class="form-group">
-            <input type="text" ng-model="post.title" class="form-control" placeholder="Post title" required>
+
+        <form name="addPost" ng-submit="createPost()">
+          <!-- POST TITLE-->
+          <div class="form-group" ng-class="{'has-error':  addPost.title.$invalid && addPost.title.$dirty}">
+            <input type="text" name="title" ng-model="post.title" class="form-control" placeholder="Post title" ng-maxlength="80" ng-minlength="5" required>
+            <div ng-show="addPost.$submitted || addPost.title.$dirty">
+              <label class="control-label" ng-show="addPost.title.$error.maxlength">Maximum Title Length is 80 </label>
+              <label class="control-label" ng-show="addPost.title.$error.minlength"> Min Title Length is 5 </label>
+            </div>
           </div>
-          <div class="form-group">
-            <textarea ng-model="post.description" class="form-control" placeholder="Describe your post" required></textarea>
+          <!--/ POST TITLE-->
+          <!-- POST DESCRIPTION-->
+          <div class="form-group" ng-class="{'has-error':  addPost.description.$invalid && addPost.description.$dirty}">
+            <textarea name="description" ng-model="post.description" class="form-control" placeholder="Describe your post"  ng-minlength="20" ng-maxlength="500" required></textarea>
+            <div ng-show="addPost.$submitted || addPost.description.$dirty">
+              <label class="control-label" ng-show="addPost.description.$error.maxlength">Maximum Title Length is 500 </label>
+              <label class="control-label" ng-show="addPost.description.$error.minlength"> Min Title Length is 20 </label>
+            </div>
           </div>
+          <!--/ POST DESCRIPTION-->
+
           <button type="submit" class="btn btn-primary">Publish</button>
+
         </form>
+
       </div>
     </div>
   </div>
