@@ -11,7 +11,7 @@ module.exports = function(config) {
     autoWatch: true,
 
     // base path, that will be used to resolve files and exclude
-    basePath: '../',
+    basePath: '',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
@@ -28,9 +28,9 @@ module.exports = function(config) {
       '../app/bower_components/angular-route/angular-route.js',
       '../app/bower_components/angular-sanitize/angular-sanitize.js',
       '../app/bower_components/angular-touch/angular-touch.js',
-      'app/scripts/**/*.js',
-      'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      '../app/scripts/**/*.js',
+      'mock/**/*.js',
+      'spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -66,7 +66,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
